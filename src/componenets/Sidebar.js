@@ -1,62 +1,29 @@
 import React from "react";
 
-function Sidebar() {
+function Sidebar({ notes, addNote }) {
   return (
     <div className="sidebarContainer">
       <div className="sidebarHeader">
         <h1>Notes</h1>
-        <button>+ Add</button>
+        <button onClick={addNote}>+ Add</button>
       </div>
 
       <div className="sidebarNotes">
+        {notes.map((note) => (
+          <div className="sidebarNote">
+            <div className="sidebarNoteTitle">
+              <strong>{note.title}</strong>
+              <button>- Delete</button>
+            </div>
+            <p>{note.body && note.body.substring(0, 100)}</p>
+            <p>Last Modified: {new Date(note.lastModified).toLocaleDateString('en-US', {
+              hour: "2-digit",
+              minute: "2-digit"
+            })}</p>
+          </div>
+        ))}
 
-        <div className="sidebarNote">
-          <div className="sidebarNoteTitle">
-            <h3>Title</h3>
-          </div>
-          <div className="sidebarNotePreview">
-            <p>Note Preview</p>
-          </div>
-          <div className="sidebarNoteModified">
-            <p>Last Modified:</p>
-          </div>
-        </div>
-
-        <div className="sidebarNote">
-          <div className="sidebarNoteTitle">
-            <h3>Title</h3>
-          </div>
-          <div className="sidebarNotePreview">
-            <p>Note Preview</p>
-          </div>
-          <div className="sidebarNoteModified">
-            <p>Last Modified:</p>
-          </div>
-        </div>
-
-        <div className="sidebarNote">
-          <div className="sidebarNoteTitle">
-            <h3>Title</h3>
-          </div>
-          <div className="sidebarNotePreview">
-            <p>Note Preview</p>
-          </div>
-          <div className="sidebarNoteModified">
-            <p>Last Modified:</p>
-          </div>
-        </div>
-
-        <div className="sidebarNote">
-          <div className="sidebarNoteTitle">
-            <h3>Title</h3>
-          </div>
-          <div className="sidebarNotePreview">
-            <p>Note Preview</p>
-          </div>
-          <div className="sidebarNoteModified">
-            <p>Last Modified:</p>
-          </div>
-        </div>
+       
         
       </div>
     </div>

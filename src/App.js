@@ -1,11 +1,33 @@
+import { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import Main from './componenets/Main';
 import Sidebar from './componenets/Sidebar';
 
 function App() {
+  const [notes, setNotes] = useState([]);
+
+  const addNote = () => {
+    const newNote = {
+      id: uuidv4(),
+      title: "Untitled Note",
+      body: "test",
+      lastModified: Date.now()
+    };
+
+    setNotes([newNote, ...notes])
+  }
+
+  const removeNote = (noteId) => {
+    const newNoteList = notes.filter((note) => note.id !== noteId);
+    setNotes([newNoteList])
+  }
+
+
   return (
     <div className="App">
-      <Sidebar />
+      <Sidebar notes={notes} addNote={addNote} removeNote={removeNote}
+       />
       <Main />
     </div>
   );

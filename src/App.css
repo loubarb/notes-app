@@ -25,6 +25,11 @@
   flex-direction: column;
 }
 
+.sidebarNoteTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
 .mainContainer {
   width: 65%;
 }
