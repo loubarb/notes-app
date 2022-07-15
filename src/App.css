@@ -25,9 +25,23 @@
   flex-direction: column;
 }
 
+.sidebarNote.active {
+  background-color: aqua;
+}
+
 .sidebarNoteTitle {
   display: flex;
   justify-content: space-between;
+}
+
+.noActiveNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  text-align: center;
+  color: black;
+  font-size: 32px;
 }
 
 .mainContainer {

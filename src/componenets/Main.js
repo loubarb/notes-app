@@ -1,18 +1,19 @@
 import React from "react";
 
-function Main() {
+function Main({ activeNote }) {
+  if (!activeNote) return <div className="noActiveNote">No Active Note</div>
   return (
     <div className="mainContainer">
       <div className="mainNoteEdit">
-        <input type="text" placeholder="Note Title"/>
+        <input type="text" className="noteTitle" placeholder="Note Title"/>
         <textarea />
       </div>
 
       <div className="mainNotePreview">
         <div className="mainNotePreviewTitle">
-          <h1>Note Preview</h1>
+          <h1>{activeNote.title}</h1>
         </div>
-        <div className="mainNoteLivePreview"></div>
+        <div className="mainNoteLivePreview">{activeNote.body}</div>
       </div>
     </div>
   )

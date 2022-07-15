@@ -6,28 +6,37 @@ import Sidebar from './componenets/Sidebar';
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const [activeNote, setActiveNote] = useState(false);
 
   const addNote = () => {
     const newNote = {
       id: uuidv4(),
-      title: "Untitled Note",
-      body: "test",
-      lastModified: Date.now()
+      title: 'Untitled Note',
+      body: 'test',
+      lastModified: Date.now(),
     };
 
-    setNotes([newNote, ...notes])
-  }
+    setNotes([newNote, ...notes]);
+  };
 
   const removeNote = (idToDelete) => {
     setNotes(notes.filter((note) => note.id !== idToDelete));
-  }
+  };
 
+  const getActiveNote = () => {
+    return notes.find((note) => note.id === activeNote);
+  };
 
   return (
     <div className="App">
-      <Sidebar notes={notes} addNote={addNote} removeNote={removeNote}
-       />
-      <Main />
+      <Sidebar
+        notes={notes}
+        addNote={addNote}
+        removeNote={removeNote}
+        activeNote={activeNote}
+        setActiveNote={setActiveNote}
+      />
+      <Main activeNote={getActiveNote()} />
     </div>
   );
 }
