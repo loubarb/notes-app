@@ -1,6 +1,6 @@
 import React from "react";
 
-function Sidebar({ notes, addNote }) {
+function Sidebar({ notes, addNote, removeNote }) {
   return (
     <div className="sidebarContainer">
       <div className="sidebarHeader">
@@ -13,7 +13,7 @@ function Sidebar({ notes, addNote }) {
           <div className="sidebarNote">
             <div className="sidebarNoteTitle">
               <strong>{note.title}</strong>
-              <button>- Delete</button>
+              <button onClick={() => removeNote(note.id)}>- Delete</button>
             </div>
             <p>{note.body && note.body.substring(0, 100)}</p>
             <p>Last Modified: {new Date(note.lastModified).toLocaleDateString('en-US', {

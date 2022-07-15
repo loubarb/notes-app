@@ -18,9 +18,8 @@ function App() {
     setNotes([newNote, ...notes])
   }
 
-  const removeNote = (noteId) => {
-    const newNoteList = notes.filter((note) => note.id !== noteId);
-    setNotes([newNoteList])
+  const removeNote = (idToDelete) => {
+    setNotes(notes.filter((note) => note.id !== idToDelete));
   }
 
 
