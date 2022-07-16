@@ -1,4 +1,5 @@
 import React from "react";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 function Main({ activeNote, updateNote }) {
   const editField = (key, value) => {
@@ -21,7 +22,7 @@ function Main({ activeNote, updateNote }) {
         <div className="mainNotePreviewTitle">
           <h1>{activeNote.title}</h1>
         </div>
-        <div className="mainNoteLivePreview">{activeNote.body}</div>
+        <ReactMarkdown className="mainNoteLivePreview">{activeNote.body}</ReactMarkdown>
       </div>
     </div>
   )
