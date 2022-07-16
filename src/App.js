@@ -12,12 +12,24 @@ function App() {
     const newNote = {
       id: uuidv4(),
       title: 'Untitled Note',
-      body: 'test',
+      body: '',
       lastModified: Date.now(),
     };
 
     setNotes([newNote, ...notes]);
   };
+
+  const updateNote = (updatedNote) => {
+    const updatedNotesArray = notes.map((note) => {
+      if (note.id === activeNote) {
+        return updatedNote
+      }
+
+      return note
+    });
+
+    setNotes(updatedNotesArray)
+  }
 
   const removeNote = (idToDelete) => {
     setNotes(notes.filter((note) => note.id !== idToDelete));
@@ -36,7 +48,7 @@ function App() {
         activeNote={activeNote}
         setActiveNote={setActiveNote}
       />
-      <Main activeNote={getActiveNote()} />
+      <Main activeNote={getActiveNote()} updateNote={updateNote} />
     </div>
   );
 }
