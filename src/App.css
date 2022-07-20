@@ -1,18 +1,42 @@
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body, .App {
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+}
+
+button {
+  border: none;
+  background: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+p {
+  margin: 10px 0;
+}
+
 .App {
   display: flex;
   flex-direction: row;
 }
 
 .sidebarContainer {
-  width: 35%;
+  width: 30%;
   height: 100vh;
+  border-right: 1px solid black;
+  overflow-y: scroll;
 }
 
 .sidebarHeader {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
 }
 
 .sidebarNotes {
@@ -20,13 +44,22 @@
   flex-direction: column;
 }
 
+.sidebarNotes button {
+  color: #FF3B30;
+}
+
 .sidebarNote {
   display: flex;
   flex-direction: column;
+  padding: 20px;
+}
+
+.sidebarNote:hover {
+  background-color: rgba(100, 210, 255, 0.3);
 }
 
 .sidebarNote.active {
-  background-color: aqua;
+  background-color: #0A84FF;
 }
 
 .sidebarNoteTitle {
@@ -34,18 +67,23 @@
   justify-content: space-between;
 }
 
+.sidebarNoteTitle strong {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
 .noActiveNote {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 65%;
+  width: 70%;
   text-align: center;
   color: black;
   font-size: 32px;
 }
 
 .mainContainer {
-  width: 65%;
+  width: 70%;
 }
 
 .mainNoteEdit {
@@ -57,22 +95,28 @@
 }
 
 .mainNoteEdit input {
-  width: 80%;
+  width: 100%;
   font-size: 32px;
   margin-bottom: 30px;
 }
 
 .mainNoteEdit textarea {
-  width: 80%;
-  height: 100px;
+  width: 100%;
+  height: 35vh;
   font-size: 24px;
 }
 
 .mainNotePreview {
   background-color: lightgray;
   height: calc(100% - 100px);
+  margin: 0;
+  padding: 15px 30px;
 }
 
 .mainNotePreviewTitle {
-  padding: 0 30px;
+  padding: 0;
+}
+
+.mainNoteLivePreview p {
+  font-size: 20px;
 }
