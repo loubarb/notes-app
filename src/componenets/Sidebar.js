@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Sidebar({ notes, addNote, removeNote, activeNote, setActiveNote }) {
   const sortedNotes = notes.sort((a, b) => b.lastModified - a.lastModified)
 
@@ -15,6 +13,7 @@ function Sidebar({ notes, addNote, removeNote, activeNote, setActiveNote }) {
           <div
             className={`sidebarNote ${note.id === activeNote && 'active'}`}
             onClick={() => setActiveNote(note.id)}
+            key={note.id}
           >
             <div className="sidebarNoteTitle">
               <strong>{note.title}</strong>
